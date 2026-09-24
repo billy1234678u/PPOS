@@ -1,0 +1,44 @@
+{
+  "name": "ppos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "start": "PORT=3000 node server/index.js",
+    "dev:server": "PORT=3001 node server/index.js",
+    "dev:client": "vite --host 0.0.0.0 --port 3000",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "test": "node test/pos_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billy1234678u/PPOS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/billy1234678u/PPOS/issues"
+  },
+  "homepage": "https://github.com/billy1234678u/PPOS#readme",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "canvas-confetti": "^1.9.4",
+    "concurrently": "^10.0.5",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.48.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.1"
+  }
+}

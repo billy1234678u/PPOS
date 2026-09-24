@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  giftmart-pos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: giftmart_litein_pos
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - MPESA_SIMULATION_MODE=true
+    volumes:
+      - giftmart_db_data:/app/server/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  giftmart_db_data:
+    driver: local

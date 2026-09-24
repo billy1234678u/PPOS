@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-mono-receipt {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 1);
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Thermal receipt print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #thermal-receipt-printable,
+  #thermal-receipt-printable * {
+    visibility: visible;
+  }
+  #thermal-receipt-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 78mm;
+    margin: 0;
+    padding: 2mm 3mm;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+}
